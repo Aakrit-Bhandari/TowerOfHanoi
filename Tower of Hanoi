@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+void TowerofHanoi(int start, int end, char source, char auxillary, char destination)
+{
+    if (start > end)
+    {
+        return;
+    }
+    TowerofHanoi(start, end - 1, source, destination, auxillary);
+    cout << "Move disk " << end << " from " << source << " to " << destination << endl;
+    TowerofHanoi(start, end - 1, auxillary, source, destination);
+}
+int main(void)
+{
+    int a, b;
+    char f, g, h;
+    f = 'A';
+    g = 'B';
+    h = 'C';
+    cout << "Enter starting disk : ";
+    cin >> a;
+    cout << "Enter last disk : ";
+    cin >> b;
+    cout << "Tower name's are A B C, for source,auxillary and destination respectively";
+    TowerofHanoi(a, b, f, g, h);
+}
